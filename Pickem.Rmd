@@ -1,0 +1,17 @@
+---
+title: "Pickem Charts"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r Loading_packages, message=FALSE}
+library(tidyverse)
+```
+
+
+
+
+
