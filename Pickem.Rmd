@@ -9,6 +9,18 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r Loading_packages, message=FALSE}
 library(tidyverse)
+library(moderndive)
+library(janitor)
+```
+
+```{r Reading_Files, message=FALSE, warning=FALSE}
+Pickem <- read_csv(here::here("2021- Pickem League Wins.csv"))
+
+```
+
+```{r Experimental}
+  ggplot(data=Pickem, aes(x=Chris, y=User)) + geom_point(alpha=.5)
+
 ```
 
 
