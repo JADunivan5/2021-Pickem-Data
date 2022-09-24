@@ -49,7 +49,7 @@ matt <- Pickem %>%
 
 BvM <- ggplot() + geom_point(data=jack,aes(x=jack, y=user), colour='red') + geom_point(alpha=.5) + geom_point(data=matt, aes(x=matt, y=user), colour= 'blue') + geom_point(alpha=.5)
 
-BvM + scale_x_continuous(name="Bohr Vs Stase", breaks =c(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16))
+BvM + scale_x_continuous(name="Bohr Vs Stase", breaks =c(0:16))
 
 ```
 
