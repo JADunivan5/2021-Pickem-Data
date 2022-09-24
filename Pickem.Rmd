@@ -15,19 +15,18 @@ library(janitor)
 
 ```{r Reading_Files, message=FALSE, warning=FALSE}
 Pickem <- read_csv(here::here("2021- Pickem League Wins.csv")) %>% 
-  clean_names() %>% 
-  select(-'x15':-'x27')
+  clean_names()
 
 
 ```
 
 ```{r Comparison of Chris Vs Jake}
 Chris <- Pickem %>% 
-  summarise(chris,user)
+  summarise(chris,week)
 Jake <- Pickem %>% 
-  summarise(jake,user)
+  summarise(jake,week)
 
-ggplot() + geom_point(data=Chris,aes(x=chris, y=user), colour='red') + geom_point(alpha=.5) + geom_point(data=Jake, aes(x=jake, y=user), colour= 'blue') + geom_point(alpha=.5)
+ggplot() + geom_point(data=Chris,aes(x=chris, y=week), colour='red') + geom_point(alpha=.5) + geom_point(data=Jake, aes(x=jake, y=week), colour= 'blue') + geom_point(alpha=.5)
 
 ```
 
@@ -43,11 +42,11 @@ ggplot() + geom_point(data=Chris,aes(x=chris, y=user), colour='red') + geom_poin
 
 ```{r Bohr vs Stase}
 jack <- Pickem %>% 
-  summarise(jack,user)
+  summarise(jack,week)
 matt <- Pickem %>% 
-  summarise(matt,user)
+  summarise(matt,week)
 
-BvM <- ggplot() + geom_point(data=jack,aes(x=jack, y=user), colour='red') + geom_point(alpha=.5) + geom_point(data=matt, aes(x=matt, y=user), colour= 'blue') + geom_point(alpha=.5)
+BvM <- ggplot() + geom_point(data=jack,aes(x=jack, y=week), colour='red') + geom_point(alpha=.5) + geom_point(data=matt, aes(x=matt, y=week), colour= 'blue') + geom_point(alpha=.5)
 
 BvM + scale_x_continuous(name="Bohr Vs Stase", breaks =c(0:16))
 
