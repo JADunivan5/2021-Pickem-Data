@@ -11,6 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(moderndive)
 library(janitor)
+library(corrr)
 ```
 
 ```{r Reading_Files, message=FALSE, warning=FALSE}
@@ -34,8 +35,10 @@ ggplot() + geom_point(data=Chris,aes(x=chris, y=week), colour='red') + geom_poin
 ```{r Mean of Each week}
  Mean_WK <-Pickem %>% 
  rowwise() %>% 
-  mutate(m=mean(c_across(2:12)))
-
+  mutate(m=mean(c_across(2:12))) %>% 
+  ungroup() %>% 
+  summarise(m)
+Mean_WK
 ```
 
 
@@ -53,6 +56,17 @@ BvM + scale_x_continuous(name="Bohr Vs Stase", breaks =c(0:16))
 ```
 
 
+```{r Correlations between the mean and users}
+
+ Corr_Mn <-Pickem %>% 
+ rowwise() %>% 
+  mutate(m=mean(c_across(2:12))) %>% select(2:13) %>% 
+    correlate()
+Corr_Mn
+
+
+
+```
 
 
 
